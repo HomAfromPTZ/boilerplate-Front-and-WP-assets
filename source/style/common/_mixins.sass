@@ -1,0 +1,88 @@
+// =================================
+// Mixins
+// =================================
+
+// Inline media queries mixin
+/** Breakpoints:
+ * l - large: notebooks, pc's
+ * m - medium: large tablets and small notebooks
+ * s - small: tablets
+ * xs - eXtra small: smartphones
+ * xxs - iphone 4
+ * DO - "Desktop Only" fallback to prevent mobile loading
+ * FP - "Future proof" fallback
+ *
+ * How to use:
+ * .my_class
+ *    +media(size)
+ *      attr: value
+ */
+=media($screen)
+	$screen_sizes: (l: 1200px, m: 992px, s: 768px, xs: 480px, xxs: 320px, DO: 769px, FP: 1920px)
+	@if $screen == DO
+		@media only screen and (min-width : #{map-get($screen_sizes, $screen)})
+			@content
+	@else if $screen == FP
+		@media only screen and (min-width : #{map-get($screen_sizes, $screen)})
+			@content
+	@else
+		@media only screen and (max-width : #{map-get($screen_sizes, $screen)})
+			@content
+
+=mediaY($screen)
+	$screen_sizes: (l: 1080px, m: 720px, s: 650px, xs: 480px, xxs: 320px, DO: 769px)
+	@if $screen == DO
+		@media only screen and (min-height : #{map-get($screen_sizes, $screen)})
+			@content
+	@else
+		@media only screen and (max-height : #{map-get($screen_sizes, $screen)})
+			@content
+
+
+.debug
+	position: fixed
+	// display: none
+	height: 20px
+	left: 0
+	z-index: 1000
+	opacity: 1
+	padding-left: 10px
+	font-weight: bold
+	color: white
+	&_l
+		top: 0
+		width: 1200px
+		background-color: red
+	&_m
+		top: 20px
+		width: 992px
+		background-color: green
+	&_s
+		top: 40px
+		width: 768px
+		background-color: orange
+	&_xs
+		top: 60px
+		width: 480px
+		background-color: magenta
+	&_xxs
+		top: 80px
+		width: 320px
+		background-color: blue
+
+
+
+
+// =================================
+// Functions
+// =================================
+
+// Convert px to rem
+@function rem($pxsize,$rembase:16)
+	@return ($pxsize/$rembase) + rem
+
+
+// Convert pixels to percentage
+// target / context = result
+@function resp($target,$context)
+	@return ($target/$context)*100 + %

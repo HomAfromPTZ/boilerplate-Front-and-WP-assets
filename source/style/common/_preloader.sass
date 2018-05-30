@@ -1,0 +1,114 @@
+#preloader
+	position: fixed
+	width: 100%
+	height: 100%
+	left: 0
+	top: 0
+	z-index: 99999
+	background-color: $white
+	text-align: center
+	background-position: center center
+	background-size: cover
+	transition: background-color $leave-speed
+	&__progress
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		margin: auto
+		z-index: 999999
+	.lines
+		.line
+			display: block
+			position: absolute
+			top: 50%
+			left: 50%
+			margin-left: -5px
+			height: 10px
+			width: 10px
+			border-radius: 50%
+			background-color: $brandcolor
+			&_1
+				margin-top: -15px
+				animation: preloader_circle $transition-time_slow .5s linear infinite
+				// left: 0
+				// right: 0
+				// transform: translateY(-150%)
+				// animation: preloader $preloader-speed .5s linear infinite
+			&_2
+				margin-top: 5px
+				animation: preloader_circle_inverted $transition-time_slow .5s linear infinite
+				// left: 0
+				// right: 0
+				// transform: translateY(50%)
+				// animation: preloader_inverted $preloader-speed .5s linear infinite
+			// &_1
+			// 	left: 0
+			// 	right: 0
+			// 	transform: translateY(-150%)
+			// 	animation: preloader $preloader-speed .5s linear infinite
+			// &_2
+			// 	left: 0
+			// 	right: 0
+			// 	transform: translateY(50%)
+			// 	animation: preloader_inverted $preloader-speed .5s linear infinite
+
+	&.loading
+		.line
+			&_1
+				// left: 100%
+				// right: 0
+				// animation: leave-page $leave-speed linear 1
+				// animation-fill-mode: both
+				animation: none
+			&_2
+				// right: 100%
+				// left: 0
+				// animation: leave-page $leave-speed linear 1
+				// animation-fill-mode: both
+				animation: none
+
+@keyframes preloader_circle
+	25%
+		transform: translateX(-100%)
+	50%
+		transform: translateX(0)
+	75%
+		transform: translateX(100%)
+
+@keyframes preloader_circle_inverted
+	25%
+		transform: translateX(100%)
+	50%
+		transform: translateX(0)
+	75%
+		transform: translateX(-100%)
+
+@keyframes preloader
+	50%
+		left: 0
+		right: 100%
+	51%
+		left: 100%
+		right: 0
+	100%
+		left: 0
+		right: 0
+
+
+@keyframes preloader_inverted
+	50%
+		left: 100%
+		right: 0
+	51%
+		left: 0
+		right: 100%
+	100%
+		left: 0
+		right: 0
+
+@keyframes leave-page
+	100%
+		left: 0
+		right: 0

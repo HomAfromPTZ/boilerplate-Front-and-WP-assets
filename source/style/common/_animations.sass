@@ -1,0 +1,167 @@
+.bb-change
+	opacity: 0
+	visibility: hidden
+	z-index: 0
+	transition: visibility $transition-time_medium, opacity $transition-time_medium
+	&.active
+		opacity: 1
+		visibility: visible
+		z-index: 1
+
+
+.bb-animation,
+.bb-animate-once
+	animation-fill-mode: both
+	animation-duration: $transition-time_medium
+
+
+.fade-in
+	animation-name: fade-in
+
+.fade-out
+	animation-name: fade-out
+
+.fade-in-down
+	animation-name: fade-in-down
+
+.fade-out-down
+	animation-name: fade-out-down
+
+.slide-in
+	&-left
+		animation-name: slide-in-left
+		animation-delay: $transition-time
+	&-right
+		animation-name: slide-in-right
+		animation-delay: $transition-time
+
+.slide-out
+	&-left
+		animation-name: slide-out-left
+	&-right
+		animation-name: slide-out-right
+
+.zoom-in
+	animation-name: zoom-in
+
+
+
+.show-in
+	animation-name: show-in
+
+.show-out
+	animation-name: show-out
+
+@keyframes fade-in
+	0%
+		transform: translate3d(0,50%,0)
+		opacity: 0
+		visibility: hidden
+	100%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+
+@keyframes fade-out
+	0%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+	100%
+		transform: translate3d(0,-50%,0)
+		opacity: 0
+		visibility: hidden
+
+
+
+@keyframes fade-in-down
+	0%
+		transform: translate3d(0,-50%,0)
+		opacity: 0
+		visibility: hidden
+	100%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+
+@keyframes fade-out-down
+	0%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+	100%
+		transform: translate3d(0,50%,0)
+		opacity: 0
+		visibility: hidden
+
+
+
+@keyframes slide-in-left
+	0%
+		transform: translate3d(70%,0,0)
+		opacity: 0
+		visibility: hidden
+	100%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+
+@keyframes slide-in-right
+	0%
+		transform: translate3d(-70%,0,0)
+		opacity: 0
+		visibility: hidden
+	100%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+
+@keyframes slide-out-left
+	0%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+	100%
+		transform: translate3d(-70%,0,0)
+		opacity: 0
+		visibility: hidden
+
+@keyframes slide-out-right
+	0%
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+	100%
+		transform: translate3d(70%,0,0)
+		opacity: 0
+		visibility: hidden
+
+
+
+@keyframes zoom-in
+	0%
+		transform: scale3d(0,0,1)
+		opacity: 0
+		visibility: hidden
+	100%
+		transform: scale3d(1,1,1)
+		opacity: 1
+		visibility: visible
+
+
+
+@keyframes show-in
+	0%
+		opacity: 0
+		visibility: hidden
+	100%
+		opacity: 1
+		visibility: visible
+
+@keyframes show-out
+	0%
+		opacity: 1
+		visibility: visible
+	100%
+		opacity: 0
+		visibility: hidden

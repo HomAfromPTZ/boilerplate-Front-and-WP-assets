@@ -1,0 +1,98 @@
+.hm-popup
+	display: table
+	position: fixed
+	visibility: hidden
+	opacity: 0
+	top: 0
+	left: 0
+	height: 100%
+	width: 100%
+	z-index: 10
+	background-color: rgba($black, .4)
+	&__container
+		display: table-cell
+		vertical-align: middle
+		position: relative
+	&__content
+		position: relative
+		width: 280px
+		max-width: 80%
+		margin: 0 auto
+		padding: 20px
+		border-radius: 5px
+		text-align: left
+		background-color: $white
+		background-repeat: no-repeat
+		background-position: center bottom
+	&__close
+		position: absolute
+		width: 40px
+		height: 40px
+		border-radius: 50%
+		right: -15px
+		top: -15px
+		background-color: $black
+		border: 2px solid $white
+		.fa
+			font-size: rem(20)
+			color: $white
+	&__text
+		font-family: "Pantonbold", sans-serif
+		margin: 0
+	&.show
+		animation: popup-show $transition-time_medium
+		animation-fill-mode: forwards
+		+media(xs)
+			animation: none
+			visibility: visible
+			opacity: 1
+		.hm-popup__content
+			animation: popup-content-show $transition-time_medium
+			animation-fill-mode: forwards
+			+media(xs)
+				animation: none
+				visibility: visible
+	&.hide
+		animation: popup-hide $transition-time_medium
+		+media(xs)
+			animation: none
+			visibility: hidden
+			opacity: 0
+		.hm-popup__content
+			animation: popup-content-hide $transition-time_medium
+			animation-fill-mode: forwards
+			+media(xs)
+				animation: none
+
+
+// =================================
+// Animations
+// =================================
+@keyframes popup-show
+	0%
+		visibility: visible
+	100%
+		visibility: visible
+		opacity: 1
+
+@keyframes popup-hide
+	0%
+		visibility: visible
+		opacity: 1
+	100%
+		visibility: visible
+		opacity: 0
+
+
+@keyframes popup-content-show
+	0%
+		transform: perspective(600px) translate3d(0,0,150px) rotateX(-70deg)
+	100%
+		transform: perspective(600px) translate3d(0,0,0) rotateX(0)
+
+
+@keyframes popup-content-hide
+	0%
+		transform: perspective(600px) translate3d(0,0,0) rotateX(0)
+	100%
+		transform: perspective(600px) translate3d(0,50px,50px) rotateX(20deg)

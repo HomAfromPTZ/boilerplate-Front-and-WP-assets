@@ -1,0 +1,213 @@
+//===============================================
+//	Biobuilding slider
+//===============================================
+.bb-slider
+	overflow: hidden
+	&__slides
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+	&__controls
+		position: absolute
+		left: 120px
+		bottom: 60px
+		display: flex
+		align-items: center
+		+media(s)
+			left: 0
+	&__prev,
+	&__next
+		width: 50px
+		height: 50px
+		border-radius: 50%
+		color: $white
+		font-size: rem(36)
+		padding-bottom: 4px
+		cursor: pointer
+		background-color: $maincolor
+		transition: background-color $transition-time, transform $transition-time
+		&:hover
+			background-color: $maincolor_dark
+			transform: scale3d(1.3,1.3,1)
+	&__prev
+		padding-right: 4px
+	&__next
+		padding-left: 4px
+		margin-left: 25px
+	.content__holder
+		// padding-bottom: 120px
+		position: relative
+		margin-bottom: 160px
+
+
+.slide,
+.slide__bg
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-position: center center
+	background-repeat: no-repeat
+
+.slide
+	opacity: 0
+	// display: flex
+	// align-items: center
+	// justify-content: center
+	transition: opacity $transition-time_medium
+	&.active
+		opacity: 1
+	&__bg
+		background-size: cover
+		filter: blur(1px) grayscale(80%)
+	&__image
+		position: absolute
+		width: 100%
+		height: 100%
+		background-size: contain
+		background-position: center center
+		background-repeat: no-repeat
+
+
+//===============================================
+//	Biobuilding gallery
+//===============================================
+.bb-mansongallery
+	.content__holder
+		position: relative
+		padding-left: 0
+
+.bb-gallery
+	column-count: 4
+	column-gap: 0
+	line-height: 0
+	width: 100%
+	height: 100%
+	+media(s)
+		column-count: 2
+	&__image-wrapper
+		display: inline-block
+		padding: 4px
+		opacity: .7
+		transition: opacity $transition-time
+		will-change: opacity
+		cursor: pointer
+		&:hover
+			opacity: 1
+	&__image
+		width: 100%
+		height: auto
+
+.bb-gallery_even
+	column-count: auto
+	display: flex
+	max-height: 100%
+	height: auto
+	flex-wrap: wrap
+	align-items: center
+	+media(s)
+		column-count: auto
+	.bb-gallery
+		&__image-wrapper
+			width: 20%
+			height: 150px
+			display: flex
+			align-items: center
+			justify-content: center
+			overflow: hidden
+			+media(m)
+				width: 25%
+			+media(s)
+				width: 50%
+			+media(xs)
+				width: 100%
+		&__image
+			align-self: center
+			width: auto
+
+
+
+.bb-showscreen
+	position: absolute
+	height: 100%
+	width: 100%
+	left: 0
+	z-index: 3
+	visibility: hidden
+	opacity: 0
+	transition: visibility $transition-time, opacity $transition-time
+	&.active
+		visibility: visible
+		opacity: 1
+	&__holder
+		background-color: rgba($gray, .9)
+		position: relative
+		height: 100%
+		display: flex
+		justify-content: center
+	&__close
+		position: absolute
+		z-index: 3
+		padding: 15px
+		right: 0
+		background-color: $black
+		color: $white
+		opacity: .5
+		will-change: opacity
+		transition: opacity $transition-time
+		// border-bottom-right-radius: 10px
+		border-bottom-left-radius: 10px
+		&:hover
+			opacity: .7
+		span
+			font-family: FontAwesome !important
+	&__prev,
+	&__next
+		position: absolute
+		z-index: 2
+		padding: 15px
+		top: 50%
+		height: 100%
+		transform: translateY(-50%)
+		// background-color: $white
+		opacity: .3
+		transition: opacity $transition-time
+		&:hover
+			opacity: .7
+		span
+			font-family: FontAwesome !important
+			font-size: rem(25)
+			text-shadow: -1px -1px 1px $white, 1px -1px 1px $white, -1px 1px 1px $white, 1px 1px 1px $white
+	&__prev
+		left: 0
+		// border-top-right-radius: 20px
+		// border-bottom-right-radius: 20px
+	&__next
+		right: 0
+		// border-top-left-radius: 20px
+		// border-bottom-left-radius: 20px
+	&__img
+		max-height: auto
+		max-width: 100%
+		align-self: center
+		position: relative
+		z-index: 1
+		// transform: translateZ(0)
+		// transition: opacity $transition-time
+	&__metabox
+		position: absolute
+		z-index: 2
+		width: 100%
+		bottom: 0
+		padding: 10px
+		color: $white
+		background-color: rgba($black, .5)
+	&__full-link
+		color: $white
+		font-size: rem(12)
+		span
+			font-family: FontAwesome !important
+			margin-right: 5px

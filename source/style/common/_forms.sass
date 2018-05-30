@@ -1,0 +1,92 @@
+//===============================================
+//	MAIN FEEDBACK FORM
+//===============================================
+.feedback
+	width: 100%
+	&__label
+		font-size: rem(18)
+		font-weight: bold
+		text-transform: uppercase
+		width: 100%
+		clear: both
+		display: block
+		margin-bottom: 15px
+		cursor: pointer
+		@extend %clearfix
+		+media(s)
+			font-size: rem(16)
+			clear: both
+	&__input
+		font-size: rem(16)
+		font-weight: normal
+		width: resp(600,960)
+		float: right
+		max-height: 60px
+		border: none
+		border-bottom: 1px solid $black
+		border-radius: 0
+		resize: none
+		+media(m)
+			float: none
+			display: block
+			width: 100%
+			margin-top: 5px
+		&_short
+			width: resp(280,960)
+			margin-right: resp(320,960)
+			+media(l)
+				width: resp(340,960)
+				margin-right: resp(260,960)
+			+media(m)
+				width: 100%
+				margin-right: 0
+		.buy-form &
+			background-color: $maincolor
+			color: $white
+	&__submit
+		display: block
+		margin-left: resp(360,960)
+		margin-top: 60px
+		width: 60px
+		height: 60px
+		background-color: $maincolor_light
+		color: $white
+		border-radius: 50%
+		text-transform: uppercase
+		clear: both
+		transition: background-color $transition-time, box-shadow $transition-time_fast
+		.buy-form &
+			color: $maincolor
+			background-color: $text-color
+		+media(m)
+			margin-left: 50%
+			margin-top: 30px
+			transform: translateX(-50%)
+		&:hover
+			background-color: $maincolor
+			.buy-form &
+				background-color: $white
+				color: $maincolor
+		&:active
+			box-shadow: inset 0 0 7px 4px $white
+
+.consultation,
+.buy-form
+	.wpcf7-response-output
+		// display: block
+		position: absolute
+		top: 0
+		width: 60%
+		font-size: rem(14)
+
+	.wpcf7-not-valid-tip
+		position: absolute
+		font-size: rem(13)
+		display: block
+		width: 300px
+
+
+.buy-form
+	a
+		&:hover
+			color: $white

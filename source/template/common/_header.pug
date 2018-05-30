@@ -1,0 +1,51 @@
+.debug.debug_l l
+.debug.debug_m m
+.debug.debug_s s
+.debug.debug_xs xs
+.debug.debug_xxs xxs
+
+header.header
+	.header__logo.bb-animate-once(data-animation="zoom-in")
+		a.preload-link(href="/")
+			img.logo-img(src="/assets/img/logo.png" alt="Biobuilding" title="Bio Building - С любовью к жизни")
+	.header__block.header__slogan.bb-animate-once(data-animation="zoom-in") BIO Building - С любовью к жизни
+	.header__block.header__pagination
+		.screen-pager.bb-animate-once#screen-pager(data-animation="zoom-in")
+			span.screen-pager__number#current-page
+			span.screen-pager__separator /
+			span.screen-pager__number#total-pages
+	.header__block.header__language.bb-animate-once(data-animation="zoom-in")
+		a.language-name.preload-link(href="/") Rus
+
+ul.top-controls
+	li.top-controls__item.bb-animate-once(data-animation="zoom-in")
+		button.map-button.fa.fa-map-marker#map-toggle
+	li.top-controls__item.bb-animate-once(data-animation="zoom-in")
+		button.menu-button#menu-toggle
+			span.menu-button__line
+
+.main-menu#main-menu
+	.main-menu__title Меню
+	ul.main-menu__items
+		li.active: a.preload-link(href="/") Главная
+		li: a.preload-link(href="/") О компании
+		li: a.preload-link(href="/products.html") Продукция
+		li: a.preload-link(href="/") Партнерам
+		li: a.preload-link(href="/") Новости
+		li: a.preload-link(href="/") Статьи
+		li: a.preload-link(href="/faq.html") Вопросы
+		li: a.preload-link(href="/") Контакты
+	button.consultation-toggle.main-menu__consultation Консультация
+
+.consultation#consultation
+	button.consultation-toggle.consultation__close.fa.fa-arrow-right
+	form.consultation__form.feedback(method="post" action="/")
+		label.feedback__label Ваше имя
+			input.feedback__input(type="text" placeholder="Иванов Иван Иванович" required)
+		label.feedback__label Телефон
+			input.feedback__input.feedback__input_short(type="tel" placeholder="+71234567890" required)
+		label.feedback__label E-mail
+			input.feedback__input.feedback__input_short(type="email" placeholder="example@domain.com" required)
+		label.feedback__label Комментарий
+			textarea.feedback__input(placeholder="Помогите, пожалуйста, с выбором продукта." required)
+		button.feedback__submit Ok

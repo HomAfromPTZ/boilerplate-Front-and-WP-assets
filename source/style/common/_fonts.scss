@@ -1,0 +1,64 @@
+// ======================================
+// Intro
+// ======================================
+@font-face {
+	font-family: 'Intro';
+	src: url('../fonts/intro/intro-regular-webfont.eot');
+	src: url('../fonts/intro/intro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/intro/intro-regular-webfont.woff2') format('woff2'),
+		url('../fonts/intro/intro-regular-webfont.woff') format('woff'),
+		url('../fonts/intro/intro-regular-webfont.ttf') format('truetype'),
+		url('../fonts/intro/intro-regular-webfont.svg#cyntho_proregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+// ======================================
+// Museo
+// ======================================
+@font-face {
+	font-family: 'Museo';
+	src: url('../fonts/museosanscyrl/museosanscyrl-500-normal.eot');
+	src: url('../fonts/museosanscyrl/museosanscyrl-500-normal.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/museosanscyrl/museosanscyrl-500-normal.woff2') format('woff2'),
+		url('../fonts/museosanscyrl/museosanscyrl-500-normal.woff') format('woff'),
+		url('../fonts/museosanscyrl/museosanscyrl-500-normal.ttf') format('truetype'),
+		url('../fonts/museosanscyrl/museosanscyrl-500-normal.svg#museo_sans_cyrl500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// ======================================
+// Roboto
+// ======================================
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/roboto-regular/roboto.eot');
+	src: url('../fonts/roboto-regular/roboto.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/roboto-regular/roboto.woff') format('woff'),
+		url('../fonts/roboto-regular/roboto.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/roboto-bold/RobotoBold.eot');
+	src: url('../fonts/roboto-bold/RobotoBold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/roboto-bold/RobotoBold.woff') format('woff'),
+		url('../fonts/roboto-bold/RobotoBold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/roboto-light/RobotoLight.eot');
+	src: url('../fonts/roboto-light/RobotoLight.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/roboto-light/RobotoLight.woff') format('woff'),
+		url('../fonts/roboto-light/RobotoLight.ttf') format('truetype');
+	font-weight: light;
+	font-style: normal;
+}

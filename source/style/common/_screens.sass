@@ -1,0 +1,384 @@
+//===============================================
+//	OVERALL SCREEN STYLES
+//===============================================
+#bg-panel
+	position: absolute
+	top: 0
+	bottom: 0
+	right: 0
+	left: 0
+	display: block
+	background-color: $panel-color
+	z-index: -1
+	transition: all $transition-time_slow
+	&.fullscreen
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+	&.right
+		left: $sidebar_out
+	&.left
+		right: $content-width
+	&.half
+		right: 50%
+	&.hideUp
+		bottom: 100%
+	&.hiddenRight
+		left: 100%
+	&.hiddenLeft
+		right: 100%
+
+.screens
+	width: 100%
+	height: 100%
+
+
+.screen
+	padding: 120px $scr-padding 60px
+	position: absolute
+	top: 0
+	height: 100%
+	width: 100%
+	overflow: hidden
+	+media(xs)
+		padding-top: 90px
+	&_singlepage
+		+media(s)
+			padding-top: 160px
+		+media(xs)
+			padding-top: 120px
+	&__bg
+		display: block
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		background-size: auto 100%
+		background-repeat: no-repeat
+		background-position: right bottom
+		&_cover
+			background-size: cover
+			background-position: center center
+		&_mobile-top
+			+media(s)
+				background-color: $white
+				height: 280px
+			+media(xs)
+				height: 190px
+	&__title
+		position: relative
+		margin-left: 100px
+		width: 50%
+		height: 250px
+		z-index: 5
+		+media(m)
+			height: 220px
+		+media(s)
+			margin-left: 0
+			height: 170px
+			width: 60%
+		+media(xs)
+			width: resp(1060,1280)
+			height: 110px
+		&_zero
+			width: 0
+		&_half-width
+			width: 50%
+		&_half-height
+			height: 200px
+			+media(m)
+				height: 150px
+			+media(s)
+				height: 90px
+			+media(xs)
+				height: 70px
+		&_fullwidth
+			width: resp(1060,1280)
+			+media(s)
+				width: 100%
+		&_auto-height
+			height: auto
+			margin-bottom: 10px
+		&-stretcher
+			display: block
+			width: 500px
+			+media(m)
+				width: 320px
+			+media(s)
+				width: 260px
+			+media(xs)
+				width: 180px
+			+media(xxs)
+				width: 160px
+	&__subtitle
+		height: 120px
+		display: block
+		+media(s)
+			height: 100px
+		&_half-height
+			height: 90px
+		&_half-width
+			width: 80%
+		&_auto-height
+			height: auto
+			margin-bottom: 15px
+	&__sidenote
+		color: $text-color_light
+		font-size: rem(15)
+		+media(m)
+			font-size: rem(14)
+		+media(s)
+			font-size: rem(12)
+
+	&__sidebar
+		padding-left: 100px
+		padding-right: 30px
+		width: $sidebar_in
+		position: relative
+		z-index: 4
+		+media(s)
+			padding-left: 0
+	&__content
+		position: absolute
+		top: 0
+		bottom: 0
+		right: 0
+		left: $sidebar_out
+		height: 100%
+		overflow: visible
+		padding: 120px $scr-padding 60px 40px
+		+media(xs)
+			padding-top: 90px
+			padding-bottom: 20px
+		&_noshift
+			position: relative
+			left: 0
+			padding: 0 0 60px 0
+			+media(s)
+				padding-bottom: 20px
+		&_fullwidth
+			position: relative
+			padding: 0
+			left: 100px
+			width: resp(960,$screen-inner)
+			+media(s)
+				left: 0
+				width: 100%
+		&_half
+			left: 50%
+
+	&__navigation
+		position: absolute
+		z-index: 4
+		bottom: 60px
+		padding-left: 100px
+		padding-right: 30px
+		width: resp(420,$screen-width)
+		+media(s)
+			padding-left: 0
+		+media(xs)
+			bottom: 20px
+
+
+.footer-phone
+	position: absolute
+	z-index: 10
+	left: $scr-padding
+	bottom: 60px
+	margin-left: 100px
+	font-size: rem(15)
+	+media(s)
+		margin-left: 0
+		font-size: rem(12)
+	+media(xs)
+		bottom: 20px
+		font-size: rem(11)
+	p
+		margin: 0
+		margin-top: 5px
+		&:first-child
+			margin-top: 0
+
+
+.links-list
+	list-style: none
+	margin: 0
+	padding: 0
+	+ .links-list
+		margin-top: 5px
+		+media(xs)
+			margin-top: 15px
+	&__item
+		color: $text-color
+		font-size: rem(15)
+		font-weight: normal
+		line-height: 1.2
+		margin-top: 5px
+		text-transform: uppercase
+		cursor: pointer
+		text-decoration: underline
+		transition: color $transition-time
+		+media(s)
+			font-size: rem(13)
+		+media(xs)
+			font-size: rem(10)
+			margin-top: 15px
+		+media(xxs)
+			font-size: rem(10)
+		&:first-child
+			margin-top: 0
+
+		&:hover
+			color: $maincolor
+		&.active
+			color: $maincolor
+			text-decoration: none
+
+		&_big
+			margin-top: 40px
+			+media(s)
+				margin-top: 20px
+			&:first-child
+				margin-top: 0
+	&__sublist
+		list-style: none
+		margin: 5px 0 10px 15px
+		padding: 0
+		display: none
+		+media(xs)
+			margin-left: 5px
+		&.opened
+			display: block
+	&__sublist &__item
+		// font-size: rem(13)
+		padding: 5px
+		margin-top: 0
+		&:hover
+			color: darken($maincolor, 10%)
+	&_bold
+		.links-list
+			&__item
+				font-weight: bold
+
+
+.more-button
+	position: absolute
+	bottom: 60px
+	left: 40px
+	text-decoration: underline
+	+media(xs)
+		bottom: 20px
+
+
+.bb-next
+	position: absolute
+	text-decoration: underline
+	bottom: 60px
+	left: $sidebar_out
+	margin-left: 40px
+	cursor: pointer
+	transition: color $transition-time
+	z-index: 2
+	&:hover
+		color: $maincolor
+	+media(xs)
+		bottom: 20px
+
+.cursor-area
+	position: absolute
+	width: 100%
+	height: 100%
+	display: block
+	z-index: 3
+	background-color: transparent
+
+.cursor-plus
+	position: absolute
+	width: 120px
+	height: 120px
+	display: block
+	z-index: 2
+	top: 30%
+	left: 30%
+	// transition: left .1s, top .1s
+	.circle
+		position: relative
+		display: block
+		width: 100%
+		height: 100%
+		background-color: rgba($maincolor_light,.8)
+		border-radius: 50%
+		transform-origin: center center
+		transition: opacity $transition-time, transform $transition-time_medium
+		opacity: .7
+		transform: scale3d(.5,.5,1)
+		&::before,
+		&::after
+			content: ""
+			background-color: #FFF
+			display: block
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			border-radius: 10px
+		&::before
+			width: $line-weight
+			height: $line-length
+		&::after
+			width: $line-length
+			height: $line-weight
+	&.active
+		.circle
+			opacity: 1
+			transform: scale3d(1,1,1)
+
+.bb-singlepage-nav
+	position: absolute
+	z-index: 3
+	top: 140px
+	left: $scr-padding
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	+media(s)
+		top: 120px
+		flex-direction: row
+		align-items: center
+	+media(xs)
+		top: 80px
+	&__section
+		margin-top: 15px
+		&:first-child
+			margin-top: 0
+		+media(s)
+			float: left
+			margin: 0 15px 0 0
+
+.bb-goback-link
+	display: flex
+	align-items: center
+	span
+		padding-right: 5px
+
+.bb-social-share
+	&__item
+		background-color: $gray
+		color: $white
+		display: flex
+		width: 40px
+		height: 40px
+		justify-content: center
+		align-items: center
+		margin: 0 0 10px
+		font-size: rem(20)
+		&:hover
+			color: $black
+		+media(s)
+			float: left
+			margin: 0 10px 0 0
+			width: 26px
+			height: 26px
+			font-size: rem(14)

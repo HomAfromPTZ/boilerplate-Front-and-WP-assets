@@ -1,0 +1,192 @@
+//===============================================
+//	HOME TEMPLATE
+//===============================================
+.home-gallery
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	overflow: hidden
+	padding-left: 40px
+	padding-right: resp(60,800)
+	display: flex
+	align-items: center
+	&__controls
+		position: absolute
+		width: 100%
+		left: 0
+		bottom: 60px
+		padding-left: 40px
+		padding-right: resp(60,800)
+		z-index: 2
+		+media(s)
+			top: auto
+			bottom: 60px
+		+media(xs)
+			bottom: 20px
+		&-title
+			margin-bottom: 40px
+			+media(s)
+				margin-bottom: 30px
+			+media(xs)
+				font-size: rem(13)
+				margin-bottom: 20px
+		li
+			+media(s)
+				font-size: rem(18)
+				margin-top: 10px
+			+media(xs)
+				font-size: rem(15)
+	&__items
+		width: 100%
+		height: 70%
+		position: relative
+		z-index: 1
+
+
+
+.gallery
+	position: relative
+	z-index: 1
+	list-style: none
+	height: 100%
+	width: 100%
+	padding: 0
+	margin: 0
+	transition: transform $transition-time_slow cubic-bezier(0.39, 0.575, 0.565, 1)
+	will-change: transform
+	&__item
+		position: absolute
+		top: 0
+		height: 100%
+		width: 100%
+		margin: 0 auto
+		display: flex
+		align-items: center
+		justify-content: center
+		animation-name: fade-out
+		animation-fill-mode: both
+		animation-duration: $transition-time_medium
+		&.active
+			animation-name: fade-in
+
+
+.project-head
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	&__info
+		position: absolute
+		top: $top_d - 10px
+		left: 30px
+		width: resp(340,800)
+		overflow-y: hidden
+		background-color: rgba($panel-color, .5)
+		padding: 10px
+		max-height: 190px
+		+media(l)
+			width: 60%
+		+media(m)
+			top: $top_m - 10px
+			left: 30px
+			width: 80%
+		+media(s)
+			top: $top_s - 10px
+			width: auto
+			right: resp(60,800)
+			background-color: rgba($white, .7)
+			max-height: 270px
+		+media(xs)
+			font-size: rem(13)
+			top: $top_xs - 10px
+			max-height: 300px
+
+
+.benefits
+	@extend .project-head__info
+	background: transparent
+	padding: 10px 0
+	.links-list__item
+		width: resp(280,800)
+		+media(s)
+			width: 70%
+
+
+.faq
+	&__questions
+		position: absolute
+		width: resp(280,1280)
+		padding-right: 40px
+		margin-left: 40px
+		max-height: 260px
+		left: $sidebar_out
+		top: $top_d-half
+		+media(l)
+			width: resp(330,1280)
+		+media(m)
+			top: $top_m-half
+		+media(s)
+			top: $top_s-half
+			padding-right: 40px
+			width: resp(740,1280)
+			max-height: 120px
+		+media(xs)
+			top: $top_xs-half
+			max-height: 110px
+		>li
+			text-transform: none
+			+media(m)
+				font-size: rem(10)
+			+media(s)
+				font-size: rem(10)
+	&__answers
+		position: absolute
+		top: $top_d-half
+		left: resp(800,1280)
+		width: resp(320,1280)
+		+media(l)
+			left: resp(850,1280)
+			width: resp(370,1280)
+		+media(m)
+			top: $top_m-half
+		+media(s)
+			top: $top_s-half + 120px
+			left: 0
+			width: 100%
+			min-width: 320px
+			padding: 0 $scr-padding
+		+media(xs)
+			top: $top_xs-half + 110px
+	&__answers-title
+		display: inline-block
+		height: 40px
+		margin-right: 15px
+		+media(s)
+			font-size: rem(16)
+		+media(xs)
+			height: 25px
+	&__answers-list
+		list-style: none
+		margin: 0
+		padding: 0
+		position: relative
+	&__answer
+		font-size: rem(15)
+		position: absolute
+		top: 0
+		transition: all $transition-time_medium
+		max-height: 220px
+		animation-duration: $transition-time_medium
+		animation-fill-mode: both
+		animation-name: fade-out
+		+media(s)
+			font-size: rem(13)
+			width: 100%
+			max-height: 140px
+		+media(xs)
+			max-height: 180px
+		&.active
+			animation-name: fade-in

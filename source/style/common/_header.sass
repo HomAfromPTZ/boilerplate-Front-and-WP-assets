@@ -1,0 +1,246 @@
+//===============================================
+//	HEADER
+//===============================================
+.header
+	&-block
+		position: absolute
+		z-index: 10
+		top: 60px
+		+media(xs)
+			top: 20px
+
+	&-logo
+		height: 60px
+		width: 60px
+		left: $scr-padding
+		display: block
+		z-index: 11
+		+media(s)
+			height: 40px
+			width: 40px
+	&-slogan
+		width: resp(420,1280)
+		left: $scr-padding
+		padding-right: 30px
+		padding-left: 100px
+		font-size: rem(15)
+		+media(s)
+			padding-right: 10px
+			padding-left: 50px
+			font-size: rem(13)
+		+media(xs)
+			font-size: rem(10)
+		&_half
+			width: resp(580,1280)
+
+	&-nav
+		left: resp(480,1280)
+		margin-left: 40px
+		&_half
+			left: 50%
+		&__pagination
+			float: left
+			width: 120px
+			+media(s)
+				width: 80px
+			+media(xs)
+				display: none
+		&__language
+			float: left
+			max-width: 160px
+
+
+.logo-img
+	transition: transform $transition-time
+	&:hover
+		transform: scale(1.1)
+
+.counter
+	&_gray
+		color: $text-color_light
+	&__separator
+		margin: 0 6px
+	&__number
+		transition: all $transition-time
+		min-width: 10px
+		display: inline-block
+		>span
+			display: inline-block
+
+.header-controls
+	list-style: none
+	margin: 0
+	padding: 0
+	position: absolute
+	z-index: 20
+	right: $scr-padding
+	&__item
+		display: inline-block
+		vertical-align: middle
+		margin-left: 20px
+		cursor: pointer
+		&:first-child
+			margin-left: 0
+
+.map-button
+	font-size: rem(22)
+	transition: color $transition-time
+	&:hover
+		color: $maincolor
+
+$menu-height: 20px
+$line-height: 3px
+$line-width: 27px
+$line-translate: ($menu-height / 2)
+
+.menu-button
+	display: block
+	width: $line-width
+	height: $menu-height
+	position: relative
+	&:hover
+		.menu-button__line,
+		&::before,
+		&::after
+			background-color: $maincolor
+	&__line,
+	&::before,
+	&::after
+		display: block
+		width: 100%
+		height: $line-height
+		right: 0
+		position: absolute
+		background-color: $text-color
+		border-radius: 6px
+		transition: all $transition-time
+		transform-origin: center center
+	&__line
+		top: 50%
+		transform: translateY(-50%)
+	&::before
+		content: ""
+		top: 0
+	&::after
+		content: ""
+		bottom: 0
+
+	&.active
+		.menu-button__line
+			opacity: 0
+			width: 0
+		&::before
+			top: 50%
+			transform: translateY(-50%) rotate(-45deg)
+		&::after
+			bottom: 50%
+			transform: translateY(50%) rotate(45deg)
+
+
+//===============================================
+//	MENU TAB
+//===============================================
+.main-menu
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	z-index: 11
+	background-color: $panel-color
+	padding: 120px $scr-padding 60px 40px
+	width: $content-width
+	transition: all $transition-time_medium
+	transform: translate3d(100%,0,0)
+	opacity: .7
+	will-change: transform
+	visibility: hidden
+	&_half
+		width: 50%
+		+media(s)
+			width: $content-width
+	+media(xs)
+		width: 100%
+		padding-left: $scr-padding
+	&.active
+		transform: translate3d(0,0,0)
+		opacity: 1
+		visibility: visible
+	&__title,
+	&__items
+		text-transform: uppercase
+		font-size: rem(30)
+		font-weight: bold
+		+media(l)
+			font-size: rem(24)
+		+media(m)
+			font-size: rem(20)
+		+media(s)
+			font-size: rem(16)
+	&__title
+		height: 120px
+		+media(s)
+			height: 50px
+	&__items
+		list-style: none
+		padding: 0
+		margin: 0
+		display: flex
+		max-height: 300px
+		height: 300px
+		width: 100%
+		flex-direction: column
+		flex-wrap: wrap
+		+media(s)
+			max-height: 220px
+			height: 200px
+		&>li
+			margin-bottom: 15px
+			margin-right: 15px
+			width: 50%
+		.active > a,
+		.current_page_irem > a
+			color: $gray
+	&__consultation
+		position: absolute
+		bottom: 60px
+		@extend .links-list__item
+		+media(xs)
+			bottom: 20px
+			font-size: rem(14) !important
+			font-weight: bold !important
+
+
+
+//===============================================
+//	CONSULTATION TAB
+//===============================================
+.consultation
+	@extend .main-menu
+	background-color: $white
+	z-index: 21
+	&__close
+		position: absolute
+		top: 60px
+		right: resp(60,800)
+		font-size: rem(24)
+		transition: all $transition-time
+		+media(xs)
+			top: 20px
+		&:hover
+			margin-right: -10px
+			padding-left: 10px
+			color: $maincolor
+
+
+
+//===============================================
+//	BUY TAB
+//===============================================
+.buy-form
+	@extend .main-menu
+	background-color: $maincolor
+	z-index: 31
+	&__close
+		@extend .consultation__close
+		&:hover
+			color: $white

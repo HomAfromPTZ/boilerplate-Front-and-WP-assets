@@ -1,0 +1,35 @@
+//- =======================
+//- COMMON MIXINS
+//- =======================
+
+//- Lorem ipsum mixin
+mixin lorem(n)
+	- var words_num = n || 10
+	- var tpl = "Donec sed velit neque. Fusce suscipit vel lorem id fermentum. Vivamus ex massa, suscipit a mi nec, dapibus facilisis mi. Integer cursus mi orci, et auctor dui interdum nec. Pellentesque ipsum nisl, aliquam at molestie eu, varius eu urna. Quisque sed metus auctor, malesuada tortor ut, hendrerit enim. Vestibulum gravida arcu vitae est pretium, vel accumsan sapien iaculis. Vestibulum commodo hendrerit dolor ut malesuada. Duis non pellentesque velit, eu vulputate est. Quisque aliquet congue leo at molestie. Nunc ac risus tellus. Cras urna purus, suscipit non pharetra vel, facilisis ut sapien. Etiam mattis est at arcu venenatis laoreet. Nulla accumsan massa libero, in efficitur purus vulputate vitae."
+
+	- var words = tpl.split(/\s+/,words_num)
+	span=words.join(" ")
+
+
+
+//- Parallax bg for login page
+mixin parallax(type)
+	- var p_type = type || "axis"
+	.parallax-wrapper
+		ul#scene(class=p_type)
+			- for (var n = 0; n < 6; n++)
+				li.layer(data-depth=(0.2*n))
+					div(class = "layer-bg layer-bg_" + n)
+
+mixin cursor-plus
+	a.cursor-area.preload-link#cursor-area(href="/")
+	span.cursor-plus#cursor-plus
+		span.circle
+
+
+mixin debugHeader
+	.debug.debug_l l
+	.debug.debug_m m
+	.debug.debug_s s
+	.debug.debug_xs xs
+	.debug.debug_xxs xxs

@@ -1,0 +1,16 @@
+include common/_mixins
+doctype html
+html(lang="ru")
+	include common/_head
+	body
+		//- include common/_sprites
+		include common/_infinite-preloader
+		//- include common/_gmapApi
+
+		<!--[if lt IE 9]>
+		<p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+		<![endif]-->
+
+		+debugHeader
+
+		include common/_footer-scripts
